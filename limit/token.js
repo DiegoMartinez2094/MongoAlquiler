@@ -3,16 +3,29 @@ import {plainToClass, classToPlain } from 'class-transformer';
 import dotenv from 'dotenv';
 import {Router} from 'express';
 import { SignJWT, jwtVerify } from 'jose';
-
+import {Client} from "../routers/storage/Cliente.js";
 
 
 dotenv.config("../");
 const appToken = Router();
 const appVerify = Router();
 
-appToken.use("/:collecion", async(req,res)=>{ //define ruta que acepta un parametro dinamico collecion (cambia)
+const createInstance = (className) => {
+    const classMap = {
+      'Cliente': Client,
+    };
+    const Class = classMap[className];
+    return (Class) ? plainToClass(Class, {}, { ignoreDecorators: true }) : undefined;
+  };
+
+appToken.use("/:collection", async(req,res)=>{ //define ruta que acepta un parametro dinamico collecion (cambia)
     try {
-        let inst =  plainToClass(eval(req.params.collecion), {}, { ignoreDecorators: true }) //Crea una instancia de la clase asociada a la colección especificada en el parámetro 
+        // let inst =  plainToClass(eval(req.params.collecion), {}, { ignoreDecorators: true }) //Crea una instancia de la clase asociada a la colección especificada en el parámetro 
+        const collectionName = req.params.collection;
+        const inst = createInstance(collectionName);
+        if (!inst)
+        return res.status(404).send({ status: 404, message: "colección no encontrada" })
+
         const encoder = new TextEncoder();                                                   //crea una nueva instancia del objeto TextEncoder
         const jwtconstructor = new SignJWT(Object.assign({}, classToPlain(inst)));
         const jwt = await jwtconstructor
