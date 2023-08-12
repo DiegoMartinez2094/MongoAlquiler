@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import {Router} from 'express';
 import { SignJWT, jwtVerify } from 'jose';
 import {Client} from "../routers/storage/Cliente.js";
+import {rent} from "../routers/storage/Alquiler.js";
 
 
 dotenv.config("../");
@@ -13,6 +14,8 @@ const appVerify = Router();
 const createInstance = (className) => {
     const classMap = {
       'Cliente': Client,
+      'Alquiler': rent,
+
     };
     const Class = classMap[className];
     return (Class) ? plainToClass(Class, {}, { ignoreDecorators: true }) : undefined;
