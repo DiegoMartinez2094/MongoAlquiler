@@ -5,6 +5,7 @@ import {Router} from 'express';
 import { SignJWT, jwtVerify } from 'jose';
 import {Client} from "../routers/storage/Cliente.js";
 import {rent} from "../routers/storage/Alquiler.js";
+import {car} from "../routers/storage/Automovil.js";
 
 
 dotenv.config("../");
@@ -15,6 +16,7 @@ const createInstance = (className) => {
     const classMap = {
       'Cliente': Client,
       'Alquiler': rent,
+      'Automovil': car,
 
     };
     const Class = classMap[className];
