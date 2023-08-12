@@ -7,36 +7,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Expose, Transform } from 'class-transformer';
+import { Expose } from 'class-transformer';
 import { IsDefined } from 'class-validator';
+// {
+//   "ID_Cliente": 4,
+//   "Nombre": "Laura",
+//   "Apellido": "Martinez",
+//   "DNI": "09876543",
+//   "Direccion": "Ruta 101",
+//   "Telefono": "44444444",
+//   "Email": "laura@example.com"
+// }
 export class Client {
     constructor(data) {
         Object.assign(this, data);
-        this.cc = 0;
-        this.nombre = "Faker";
-        this.edad = 0;
+        this.ID_Cliente = 0;
+        this.Nombre = "Faker";
+        this.DNI = 0;
     }
 }
 __decorate([
-    Expose({ name: 'cedula_usuario' }),
-    IsDefined({ message: () => { throw { status: 422, message: `La cedula_usuario es obligatoria` }; } }),
+    Expose({ name: 'ID_Cliente' }),
+    IsDefined({ message: () => { throw { status: 422, message: `La ID_Cliente es obligatoria` }; } }),
     __metadata("design:type", Number)
-], Client.prototype, "cc", void 0);
+], Client.prototype, "ID_Cliente", void 0);
 __decorate([
-    Expose({ name: 'nombre_usuario' }),
-    IsDefined({ message: () => { throw { status: 422, message: `El nombre_usuario es obligatoria` }; } }),
+    Expose({ name: 'Nombre' }),
+    IsDefined({ message: () => { throw { status: 422, message: `El Nombre es obligatorio` }; } }),
     __metadata("design:type", String)
-], Client.prototype, "nombre", void 0);
+], Client.prototype, "Nombre", void 0);
 __decorate([
-    Expose({ name: 'apellido_usuario' }),
-    Transform(({ value }) => { if (value)
-        return value;
-    else
-        "Faker"; }),
-    __metadata("design:type", String)
-], Client.prototype, "apellido", void 0);
-__decorate([
-    Expose({ name: 'edad_usuario' }),
-    IsDefined({ message: () => { throw { status: 422, message: `La edad_usuario es obligatoria` }; } }),
+    Expose({ name: 'DNI' }),
+    IsDefined({ message: () => { throw { status: 422, message: `El DNI es obligatorio` }; } }),
     __metadata("design:type", Number)
-], Client.prototype, "edad", void 0);
+], Client.prototype, "DNI", void 0);
