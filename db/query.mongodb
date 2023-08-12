@@ -47,12 +47,4 @@ db.createCollection("Cliente",{
     }
 });
 
-use("db_limit_mongo");
-db.usuario.insertMany([
-    {
-        "nombre": "1",
-        "apellido": "aaaaaaaaaaaaaaaaaaaa",
-        "edad": 111,
-        "email": "egh"
-    },
-]);
+
