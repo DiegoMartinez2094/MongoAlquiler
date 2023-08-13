@@ -8,6 +8,7 @@ import {rent} from "../routers/storage/Alquiler.js";
 import {car} from "../routers/storage/Automovil.js";
 import { Employee } from '../routers/storage/Empleado.js';
 import { registerDev } from '../routers/storage/Registro_Devolucion.js';
+import { registerEnt } from '../routers/storage/Registro_Entrega.js';
 
 dotenv.config("../");
 const appToken = Router();
@@ -19,7 +20,8 @@ const createInstance = (className) => {
       'Alquiler': rent,
       'Automovil': car,
       'Empleado': Employee,
-      'Registro_Devolucion': registerDev
+      'Registro_Devolucion': registerDev,
+      'Registro_Entrega': registerEnt
     };
     const Class = classMap[className];
     return (Class) ? plainToClass(Class, {}, { ignoreDecorators: true }) : undefined;
