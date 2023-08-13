@@ -32,7 +32,7 @@ export class registerDev {
     @IsDefined({message: ()=>{ throw {status: 422, message: `El Cargo es obligatorio`}}})
     Cargo: string;
 
-    constructor(data:Partial<Employee>) {
+    constructor(data:Partial<registerDev>) {
       Object.assign(this, data);
       this.ID_Registro = 0;
       this.ID_Alquiler = 0;
