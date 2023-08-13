@@ -10,6 +10,7 @@ import { Employee } from '../routers/storage/Empleado.js';
 import { registerDev } from '../routers/storage/Registro_Devolucion.js';
 import { registerEnt } from '../routers/storage/Registro_Entrega.js';
 import { reserv } from '../routers/storage/Reserva.js';
+import { Sucursal } from '../routers/storage/Sucursal.js';
 
 dotenv.config("../");
 const appToken = Router();
@@ -17,13 +18,14 @@ const appVerify = Router();
 
 const createInstance = (className) => {
     const classMap = {
-      'Cliente': Client,
+      'Cliente': Client, //entre comillas es el nombre de la coleccion que vamos a implementar el token
       'Alquiler': rent,
       'Automovil': car,
       'Empleado': Employee,
       'Registro_Devolucion': registerDev,
       'Registro_Entrega': registerEnt,
-      'Reserva':reserv
+      'Reserva':reserv,
+      'Sucursal':Sucursal
     };
     const Class = classMap[className];
     return (Class) ? plainToClass(Class, {}, { ignoreDecorators: true }) : undefined;
