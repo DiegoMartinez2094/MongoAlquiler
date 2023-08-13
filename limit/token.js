@@ -11,6 +11,7 @@ import { registerDev } from '../routers/storage/Registro_Devolucion.js';
 import { registerEnt } from '../routers/storage/Registro_Entrega.js';
 import { reserv } from '../routers/storage/Reserva.js';
 import { Sucursal } from '../routers/storage/Sucursal.js';
+import { Sucursal_Automovil } from '../routers/storage/Sucursal_Automovil.js';
 
 dotenv.config("../");
 const appToken = Router();
@@ -25,7 +26,8 @@ const createInstance = (className) => {
       'Registro_Devolucion': registerDev,
       'Registro_Entrega': registerEnt,
       'Reserva':reserv,
-      'Sucursal':Sucursal
+      'Sucursal':Sucursal,
+      'Sucursal_Automovil':Sucursal_Automovil
     };
     const Class = classMap[className];
     return (Class) ? plainToClass(Class, {}, { ignoreDecorators: true }) : undefined;

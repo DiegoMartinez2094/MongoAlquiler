@@ -8,6 +8,7 @@ import appRegistro_Devolucion from "./routers/Registro_Devolucion.js";
 import appRegistro_Entrega from "./routers/Registro_Entrega.js";
 import appReserva from "./routers/Reserva.js";
 import appSucursal from "./routers/Sucursal.js";
+import appSucursal_Automovil from "./routers/Sucursal_Automovil.js";
 
 import { appToken, appVerify } from "./limit/token.js";
 
@@ -25,6 +26,8 @@ app.use("/Registro_Devolucion",appVerify,appRegistro_Devolucion)
 app.use("/Registro_Entrega",appVerify,appRegistro_Entrega)
 app.use("/Reserva",appVerify,appReserva)
 app.use("/sucursal",appVerify,appSucursal)
+app.use("/sucursal_Automovil",appVerify,appSucursal_Automovil)
+
 app.use("/token", appToken); //para generar el token es con /token/"nombre coleccion"
 
 let config = JSON.parse(process.env.MY_SERVER);
