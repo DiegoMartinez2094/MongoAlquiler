@@ -10,7 +10,7 @@ let Reserva = db.collection("Reserva");
 
 
 
-appReserva.get("/ReservasPendientes", limitGrt(), appMiddlewareCampusVerify, async (req, res) => { //http://127.10.10.10:5011/Reserva/ReservasPendientes
+appReserva.get("/ReservasPendientes", limitGrt(), appMiddlewareCampusVerify,async (req, res) => { //http://127.10.10.10:5011/Reserva/ReservasPendientes
     if (!req.rateLimit) return;
     console.log(req.rateLimit);
   
