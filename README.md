@@ -16,7 +16,7 @@ Este archivo funciona para generar peticiones(post, get...) controladas usando m
 
 -ingresamos a la extensión oprimimos conectar nos pedirá el link de conexion de la base de datos la cuál encontraremos en la pagina Atlas(ingresamos con el correo, en la parte izquierda la opcion Database, luego en la opción connect, MongoDB for VS code, opción 3)
 
--Obtenemos un link de esta manera:  
+-Obtenemos un link de esta manera:
 
 | mongodb+srv://nombreusuario:`<password>`@cluster0.vzylork.mongodb.net/ |
 | ------------------------------------------------------------------------ |
@@ -71,4 +71,4 @@ Ejemplos de endpoint:
 
 -Con el endpoint = http://127.10.10.10:5011/Alquiler/AlquilerCliente  Listamos todos los alquileres activos junto con los datos de los clientes relacionados.
 
--Con el endpoint = Mostrar todas las reservas pendientes con los datos del cliente y el automóvil reservado
+-Con el endpoint =http://127.10.10.10:5011/Reserva/ReservasPendientes  Mostrar todas las reservas pendientes con los datos del cliente y el automóvil reservado
